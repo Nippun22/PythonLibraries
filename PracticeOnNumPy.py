@@ -12,6 +12,7 @@ L=[1,2,3,4,5,6]
 arr=np.array(L)
 arr=arr.reshape(2,3)
 print(arr)
+print(arr.shape)
 #Q4
 arr1=np.array([x**2 for x in range(1,11)])
 print(arr1)
