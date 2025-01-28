@@ -1,0 +1,163 @@
+#Using matplotlib, plot a simple graph y=2x+3 over the range x=-20 to x=20
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the range and function
+x = np.linspace(-20, 20, 400)
+y = 2 * x + 3
+
+# Create the plot
+plt.figure(figsize=(8, 5))
+plt.plot(x, y, label='y = 2x + 3', color='blue')
+#plt.axhline(0, color='black', linewidth=0.8, linestyle='--')  # X-axis
+#plt.axvline(0, color='black', linewidth=0.8, linestyle='--')  # Y-axis
+plt.title('Graph of y = 2x + 3')
+plt.xlabel('x')
+plt.ylabel('y')
+#plt.grid(alpha=0.5)
+plt.legend()
+plt.show()
+
+
+#Display the population of 5 different countries [Histogram]
+#import matplotlib.pyplot as plt
+
+# Data for the histogram
+countries = ['USA', 'India', 'China', 'Brazil', 'Nigeria']
+population = [331, 1400, 1441, 214, 223]  # Population in millions
+
+# Create the histogram
+plt.figure(figsize=(8, 5))
+plt.bar(countries, population, color='skyblue', edgecolor='black')
+
+# Add labels and title
+plt.title('Population of 5 Countries (in millions)', fontsize=14)
+plt.xlabel('Country', fontsize=12)
+plt.ylabel('Population (millions)', fontsize=12)
+plt.grid(axis='y', alpha=0.6)
+
+# Show the plot
+plt.show()
+
+
+#Plot of y=x^2, add attributes like colours, linestyle, line width, Axes
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# Define the range and function
+x = np.linspace(-10, 10, 500)
+y = x**2
+
+# Create the plot
+plt.figure(figsize=(8, 6))
+plt.plot(x, y, color='green', linestyle='--', linewidth=2, label='y = x²')
+
+# Customize axes
+plt.axhline(0, color='black', linewidth=1, linestyle='-')  # X-axis
+plt.axvline(0, color='black', linewidth=1, linestyle='-')  # Y-axis
+
+# Add labels, title, and grid
+plt.title('Plot of y = x²', fontsize=16)
+plt.xlabel('x', fontsize=12)
+plt.ylabel('y', fontsize=12)
+plt.grid(alpha=0.5)
+
+# Add legend
+plt.legend(fontsize=12)
+
+# Display the plot
+plt.show()
+
+
+#Generate 4 subplots of 2*2 grid of trigonometry functions (sine, cosine, tangent, cotangent) over the range of 0 to 2pi
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# Define the range of x values
+x = np.linspace(0, 2 * np.pi, 500)
+
+# Compute the functions
+y_sin = np.sin(x)
+y_cos = np.cos(x)
+y_tan = np.tan(x)
+y_cot = 1 / np.tan(x)  # Cotangent
+
+# Create subplots
+fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+fig.suptitle('Trigonometric Functions', fontsize=16)
+
+# Sine plot
+axs[0, 0].plot(x, y_sin, color='blue', label='sin(x)', linewidth=2)
+axs[0, 0].set_title('Sine Function')
+axs[0, 0].grid(alpha=0.5)
+axs[0, 0].legend()
+
+# Cosine plot
+axs[0, 1].plot(x, y_cos, color='green', label='cos(x)', linewidth=2)
+axs[0, 1].set_title('Cosine Function')
+axs[0, 1].grid(alpha=0.5)
+axs[0, 1].legend()
+
+# Tangent plot
+axs[1, 0].plot(x, y_tan, color='red', label='tan(x)', linewidth=2)
+axs[1, 0].set_title('Tangent Function')
+axs[1, 0].set_ylim(-10, 10)  # Limit the y-axis to avoid extreme values
+axs[1, 0].grid(alpha=0.5)
+axs[1, 0].legend()
+
+# Cotangent plot
+axs[1, 1].plot(x, y_cot, color='purple', label='cot(x)', linewidth=2)
+axs[1, 1].set_title('Cotangent Function')
+axs[1, 1].set_ylim(-10, 10)  # Limit the y-axis to avoid extreme values
+axs[1, 1].grid(alpha=0.5)
+axs[1, 1].legend()
+
+# Adjust layout and show
+plt.tight_layout(rect=[0, 0, 1, 0.96])  # Adjust layout to include the main title
+plt.show()
+
+
+#Create a pie chart of 5 different companies, showing the revenue generation
+#import matplotlib.pyplot as plt
+
+# Data for the pie chart
+companies = ['Apple', 'Microsoft', 'Amazon', 'Google', 'Tesla']
+revenues = [394, 211, 524, 280, 81]  # Revenue in billion USD
+
+# Create the pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(revenues, labels=companies, autopct='%1.1f%%', startangle=90, colors=['#ff9999','#66b3ff','#99ff99','#ffcc99','#c2c2f0'])
+
+# Add a title
+plt.title('Revenue Generation by Companies (in billion USD)', fontsize=14)
+plt.show()
+
+
+#Implement a plot of cosine wave which varies over time
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from matplotlib.animation import FuncAnimation
+
+# Set up the figure, the axis, and the plot element
+fig, ax = plt.subplots()
+x = np.linspace(0, 2 * np.pi, 1000)  # X-axis values
+line, = ax.plot(x, np.cos(x), label="Cosine Wave")
+ax.set_xlim(0, 2 * np.pi)
+ax.set_ylim(-1.5, 1.5)
+ax.set_title("Cosine Wave Animation")
+ax.set_xlabel("x")
+ax.set_ylabel("cos(x)")
+ax.legend()
+
+# Update function for animation
+def update(frame):
+    line.set_ydata(np.cos(x + 0.1 * frame))  # Update the y-data
+    return line,
+
+# Animate the plot
+#ani = FuncAnimation(fig, update, frames=range(100), interval=50, blit=True)
+
+plt.show()
+
+
+
